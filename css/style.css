@@ -8543,10 +8543,11 @@ subpage MENU
     align-items: center;
 
     >.et_pb_code_inner {
+        container-type: inline-size;
+        container-name: whitebox;
         padding: 0;
-        max-width: calc(100vw - 60rem);
-        margin-right: auto;
         height: max-content;
+        width: 100%;
 
         .white>div {
             color: white;
@@ -8568,6 +8569,49 @@ subpage MENU
     }
 
 }
+
+@container whitebox (max-width:1023px) {
+    .home-our-work__content {
+        >.et_pb_code_inner {
+            .white {
+                max-width: 100vw;
+            }
+        }
+    }
+}
+
+@container whitebox (min-width:1024px) {
+    .home-our-work__content {
+        >.et_pb_code_inner {
+            .white {
+                max-width: calc(100vw - 25rem);
+            }
+        }
+    }
+}
+
+@container whitebox (min-width:1280px) {
+    .home-our-work__content {
+        >.et_pb_code_inner {
+            .white {
+                max-width: calc(100vw - 45rem);
+            }
+        }
+    }
+}
+
+@container whitebox (min-width:1440px) {
+    .home-our-work__content {
+        >.et_pb_code_inner {
+            .white {
+                max-width: calc(100vw - 60rem);
+            }
+        }
+    }
+}
+
+
+
 
 .home-our-thinking__content .white>div {
     color: white;
