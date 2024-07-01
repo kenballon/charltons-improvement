@@ -8353,6 +8353,14 @@ subpage MENU
     padding: 0 !important;
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
 /* #endregion CUSTOM CSS UTILS - New June 2024 */
 
 /* #region Hero Section - New June 2024 */
@@ -8418,7 +8426,7 @@ subpage MENU
     .hero_bg_img_wrapper.with_overlay {
 
         &::before {
-            background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(26, 26, 28, 0.5) 30%, rgba(0, 0, 0, 0.3) 100%);
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(26, 26, 28, 0.2) 50%, rgba(0, 0, 0, 0.3) 100%);
         }
 
     }
