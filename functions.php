@@ -13,7 +13,7 @@ function chr_theme_enqueue_styles()
 {
 	wp_enqueue_style(
 		'parent-style',
-		get_stylesheet_directory_uri() . '/style.css',
+		get_stylesheet_directory_uri() . '/css/style.css',
 	);
 }
 
@@ -132,7 +132,7 @@ function get_recent_insight_homepage_shortcode($atts, $content = null)
 	while ($query->have_posts()):
 		$query->the_post();
 		if ($category == 'ipo' && $count == 1) {
-			$output = '<h2 class="heading"><a href="' . get_the_permalink() . '" rel="noopener" aria-label="' . get_the_title() . '">' . get_the_title() . '</a></h2>'
+			$output = '<h2 class="heading text-white"><a href="' . get_the_permalink() . '" rel="noopener" aria-label="' . get_the_title() . '">' . get_the_title() . '</a></h2>'
 				. '<div class="chr_custom_post_excerpt my-1">' . get_the_excerpt() . '</div>'
 				. '<a href="' . get_the_permalink() . '" class="read-more btn-link"> Read more&nbsp;›</a>';
 		} else {
