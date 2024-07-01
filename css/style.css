@@ -8389,7 +8389,7 @@ subpage MENU
     position: relative;
 
     .hero_bg_img_wrapper,
-    .hero_bg_img_wrapper_2 {
+    .hero_bg_img_wrapper.with_overlay {
         position: absolute;
         top: 0;
         left: 0;
@@ -8412,11 +8412,10 @@ subpage MENU
             left: 0;
             width: 100%;
             height: 100%;
-            /* background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(26, 26, 28, 0.5) 30%, rgba(0, 0, 0, 0.3) 100%); */
         }
     }
 
-    .hero_bg_img_wrapper_2 {
+    .hero_bg_img_wrapper.with_overlay {
 
         &::before {
             background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(26, 26, 28, 0.5) 30%, rgba(0, 0, 0, 0.3) 100%);
