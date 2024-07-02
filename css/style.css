@@ -1564,7 +1564,6 @@ table.new__table-one-bottom td {
 
 div.home-top-read .home-top-read__content,
 div.home-charltons .home-charltons__content,
-div.home-our-work .home-our-work__content,
 div.home-our-thinking .home-our-thinking__content {
     padding: 60px;
     min-height: 680px !important;
@@ -2421,8 +2420,28 @@ div.et_pb_module.et_pb_tabs.achive-tabs ul.et_pb_tabs_controls li.et_pb_tab_acti
     margin-top: 40px !important;
 }
 
-.content-wrapper1 .banner-image-wrapper p.h1 a {
+.content-wrapper1 .banner-image-wrapper .h1 a {
     color: #fff;
+}
+
+.banner-image-wrapper .h1 {
+    position: absolute;
+    top: 0.5em;
+    left: 0.1em;
+    font-size: clamp(1.125rem, 1.0102rem + 0.6122vw, 1.5rem);
+    font-weight: bold;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 1px #2b2b2b;
+    padding-left: 1rem;
+    padding-bottom: 0;
+    max-width: 40vw;
+    text-align: left;
+}
+
+.banner-image-wrapper .h1.finance {
+    top: auto;
+    bottom: 30vh;
+    width: 50%;
 }
 
 
@@ -4989,24 +5008,7 @@ img.img-display-block {
     z-index: -1;
 }
 
-.banner-image-wrapper p.h1 {
-    position: absolute;
-    top: 1em;
-    left: 0.1em;
-    font-size: 45px;
-    font-weight: bold;
-    color: #ffffff !important;
-    text-shadow: 1px 1px 1px #2b2b2b;
-    padding: 20px;
-    max-width: 40vw;
-    text-align: left;
-}
 
-.banner-image-wrapper p.h1.finance {
-    top: auto;
-    bottom: 30vh;
-    width: 50%;
-}
 
 
 /*sponsor-work-standards-expected-by-the-sfc*/
@@ -7288,7 +7290,7 @@ div.webinar-parts.red a.active {
     }
 
     /*Banner text */
-    .banner-image-wrapper p.h1 {
+    .banner-image-wrapper .h1 {
         font-size: 30px;
         max-width: 80vw;
         text-align: left;
@@ -7535,7 +7537,7 @@ div.webinar-parts.red a.active {
     }
 
     /*Banner text */
-    .banner-image-wrapper p.h1 {
+    .banner-image-wrapper .h1 {
         top: 0vh;
         font-size: 24px;
         max-width: 100vw;
@@ -8846,3 +8848,12 @@ subpage MENU
 }
 
 /* #endregion PROFILE CSS STYLING */
+
+
+/* #region THE FIRM PAGE */
+
+.the-firm__blurb-content .et_pb_blurb_content {
+    max-width: 100%;
+}
+
+/* #endregion THE FIRM PAGE */
