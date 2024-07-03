@@ -8363,6 +8363,31 @@ subpage MENU
     text-transform: capitalize;
 }
 
+
+.text-xl {
+    font-size: clamp(1.25rem, 1.0204rem + 1.2245vw, 2rem);
+}
+
+.height-60 {
+    height: 60vh;
+    height: 60dvh;
+    height: 60svh;
+
+    @media (max-width: 992px) {
+        height: max-content;
+    }
+}
+
+.height-40 {
+    height: 40vh;
+    height: 40dvh;
+    height: 40svh;
+
+    @media (max-width: 992px) {
+        height: max-content;
+    }
+}
+
 /* #endregion CUSTOM CSS UTILS - New June 2024 */
 
 /* #region Hero Section - New June 2024 */
