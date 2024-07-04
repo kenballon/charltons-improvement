@@ -8388,6 +8388,45 @@ subpage MENU
     }
 }
 
+.fw-light {
+    font-weight: 300;
+}
+
+.fw-regular {
+    font-weight: 400;
+}
+
+.fw-medium {
+    font-weight: 500;
+}
+
+.fw-semibold {
+    font-weight: 600;
+}
+
+.fw-bold {
+    font-weight: 700;
+}
+
+.fw-bolder {
+    font-weight: 800;
+}
+
+.cta_btn_link {
+    width: max-content;
+    color: white;
+    display: block;
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin-block: 1rem;
+    background-color: var(--chr-primary-color-900);
+    transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+    &:hover {
+        background-color: var(--chr-primary-color-700);
+    }
+}
+
 /* #endregion CUSTOM CSS UTILS - New June 2024 */
 
 /* #region Hero Section - New June 2024 */
@@ -8501,6 +8540,16 @@ subpage MENU
                 font-weight: 500;
             }
 
+            .cta_wrapper .cta_btn_link {
+                background-color: transparent;
+                border: 1px solid white;
+
+                &:hover {
+                    border-color: var(--chr-primary-color);
+                    color: var(--chr-primary-color);
+                }
+            }
+
             @media (max-width:1280px) {
                 max-width: 100%;
                 margin-top: auto;
@@ -8531,25 +8580,7 @@ subpage MENU
             }
         }
 
-        .cta_wrapper {
 
-            .cta_btn_link {
-                display: block;
-                width: max-content;
-                color: white;
-                font-size: 1rem;
-                font-weight: 600;
-                border: 1px solid white;
-                padding: 12px 24px;
-                text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.51);
-                transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-                &:hover {
-                    color: var(--chr-primary-color);
-                    border-color: var(--chr-primary-color);
-                }
-            }
-        }
 
         @media (max-width:992px) {
             padding: 20px;
@@ -8883,3 +8914,74 @@ subpage MENU
 }
 
 /* #endregion THE FIRM PAGE */
+
+/* #region NEWSLETTER SECTION */
+.et_pb_section.newsletter_section {
+    min-height: 65vh;
+    min-height: 65dvh;
+    min-height: 65svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 980px) {
+        padding: 50px 25px !important;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 60px;
+    }
+
+    .et_pb_row {
+        width: 100%;
+        margin: 0;
+        max-width: 100%;
+
+        .et_pb_code_inner {
+            container-type: inline-size;
+            container-name: recentnewsletter;
+        }
+    }
+}
+
+@container recentnewsletter (max-width:1023px) {
+    .newsletter_section {
+        .et_pb_code_inner {
+            .latest-post {
+                max-width: 100vw;
+            }
+        }
+    }
+}
+
+@container recentnewsletter (min-width:1024px) {
+    .newsletter_section {
+        .et_pb_code_inner {
+            .latest-post {
+                max-width: calc(100vw - 25rem);
+            }
+        }
+    }
+}
+
+@container recentnewsletter (min-width:1280px) {
+    .newsletter_section {
+        .et_pb_code_inner {
+            .latest-post {
+                max-width: calc(100vw - 45rem);
+            }
+        }
+    }
+}
+
+@container recentnewsletter (min-width:1440px) {
+    .newsletter_section {
+        .et_pb_code_inner {
+            .latest-post {
+                max-width: calc(100vw - 60rem);
+            }
+        }
+    }
+}
+
+/* #endregion NEWSLETTER SECTION */

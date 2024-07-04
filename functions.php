@@ -128,19 +128,23 @@ function get_recent_insight_homepage_shortcode($atts, $content = null)
 	);
 
 	$query = new WP_Query($query_args);
+
 	$output = '';
+
 	while ($query->have_posts()):
 		$query->the_post();
+
 		if ($category == 'ipo' && $count == 1) {
-			$output = '<h2 class="heading text-white"><a href="' . get_the_permalink() . '" rel="noopener" aria-label="' . get_the_title() . '">' . get_the_title() . '</a></h2>'
+			$output = '<h2 class="text-white">' . get_the_title() . '</h2>'
 				. '<div class="chr_custom_post_excerpt my-1">' . get_the_excerpt() . '</div>'
-				. '<a href="' . get_the_permalink() . '" class="read-more btn-link"> Read more&nbsp;›</a>';
+				. '<a href="' . get_the_permalink() . '" class="read-more cta_btn_link"> Read more&nbsp;›</a>';
 		} else {
 			$output .= '<li class="pub-list__pub"><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
 		}
 	endwhile;
 
 	wp_reset_postdata();
+
 	return $output;
 }
 
@@ -1543,3 +1547,85 @@ function category_id_class($classes)
 
 add_filter('post_class', 'category_id_class');
 add_filter('body_class', 'category_id_class');
+
+// ADDED BY KENNETH BALLON
+
+/**
+ * Retrieves the latest post details including title, excerpt, featured image, and URL.
+ * Allows filtering by category, the number of posts to display, and whether to include the thumbnail.
+ *
+ * @param array $atts Shortcode attributes.
+ * @return string HTML output of the latest post details.
+ */
+function get_latest_post_details($atts)
+{
+	// Define and sanitize shortcode attributes
+	$atts = shortcode_atts(array(
+		'category' => 'hong-kong-law',  // Default category
+		'posts_per_page' => 1,  // Default number of posts
+		'include_thumbnail' => 'yes'  // Default to include thumbnail
+	), $atts, 'get_recent_post_item');
+
+	$category = sanitize_text_field($atts['category']);
+	$posts_per_page = intval($atts['posts_per_page']);
+	$include_thumbnail = strtolower($atts['include_thumbnail']) === 'yes' ? true : false;
+
+	// Prepare query arguments for WP_Query
+	$query_args = array(
+		'posts_per_page' => $posts_per_page,  // Number of posts to retrieve
+		'post_status' => 'publish',  // Only published posts
+		'has_password' => false,  // Exclude password-protected posts
+		'category_name' => $category  // Filter posts by category
+	);
+
+	// Execute the query to get the latest posts
+	$latest_posts = new WP_Query($query_args);
+
+	// Initialize output
+	$output = '';
+
+	// Check if there are posts
+	if ($latest_posts->have_posts()) {
+		// Loop through the posts
+		while ($latest_posts->have_posts()) {
+			$latest_posts->the_post();
+
+			// Get the post details
+			$post_title = get_the_title();
+			$post_excerpt = get_the_excerpt();
+			$post_url = get_permalink();
+			$post_thumbnail = '';
+
+			// Check if thumbnail should be included
+			if ($include_thumbnail) {
+				$post_thumbnail = get_the_post_thumbnail(get_the_ID(), 'full');
+			}
+
+			// Create the output for each post
+			$output .= '<div class="latest-post">';
+			$output .= '<h2 class="text-white">' . esc_html($post_title) . '</h2>';
+
+			// Output the thumbnail if included
+			if ($include_thumbnail && $post_thumbnail) {
+				$output .= '<div class="post-thumbnail">' . $post_thumbnail . '</div>';
+			}
+
+			$output .= '<div class="post-excerpt text-white mb-3">' . $post_excerpt . '</div>';
+			$output .= '<div class="cta_wrapper"><a href="' . esc_url($post_url) . '" class="cta_btn_link" aria-label="Read full article on ' . esc_attr($post_title) . '">Read More ›</a></div>';
+			$output .= '</div>';
+		}
+
+		// Reset Post Data
+		wp_reset_postdata();
+	} else {
+		// If no posts were found, return a message
+		$output = '<p>No posts found.</p>';
+	}
+
+	return $output;
+}
+
+// Register the shortcode [get_recent_post_item]
+add_shortcode('get_recent_post_item', 'get_latest_post_details');
+
+// END ADDED BY KENNETH BALLON
