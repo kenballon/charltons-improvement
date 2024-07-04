@@ -8577,6 +8577,7 @@ subpage MENU
         width: 100%;
 
         .white>div {
+            width: 100%;
             color: white;
 
             >div {
