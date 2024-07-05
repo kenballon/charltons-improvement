@@ -137,7 +137,7 @@ function get_recent_insight_homepage_shortcode($atts, $content = null)
 		if ($category == 'ipo' && $count == 1) {
 			$output = '<h2 class="text-white">' . get_the_title() . '</h2>'
 				. '<div class="chr_custom_post_excerpt my-1">' . get_the_excerpt() . '</div>'
-				. '<a href="' . get_the_permalink() . '" class="read-more cta_btn_link"> Read more&nbsp;›</a>';
+				. '<a href="' . get_the_permalink() . '" class="read-more cta_btn_link white-cta"> Read more&nbsp;›</a>';
 		} else {
 			$output .= '<li class="pub-list__pub"><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
 		}
@@ -1611,7 +1611,7 @@ function get_latest_post_details($atts)
 			}
 
 			$output .= '<div class="post-excerpt text-white mb-3">' . $post_excerpt . '</div>';
-			$output .= '<div class="cta_wrapper"><a href="' . esc_url($post_url) . '" class="cta_btn_link" aria-label="Read full article on ' . esc_attr($post_title) . '">Read More ›</a></div>';
+			$output .= '<div class="cta_wrapper"><a href="' . esc_url($post_url) . '" class="cta_btn_link white-cta" aria-label="Read full article on ' . esc_attr($post_title) . '">Read More ›</a></div>';
 			$output .= '</div>';
 		}
 

@@ -8427,6 +8427,16 @@ subpage MENU
     }
 }
 
+.cta_btn_link.white-cta {
+    background-color: transparent;
+    border: 1px solid white;
+
+    &:hover {
+        color: var(--chr-primary-color);
+        border-color: var(--chr-primary-color);
+    }
+}
+
 /* #endregion CUSTOM CSS UTILS - New June 2024 */
 
 /* #region Hero Section - New June 2024 */
@@ -8663,13 +8673,11 @@ subpage MENU
     .home-our-work__content {
         >.et_pb_code_inner {
             .white {
-                max-width: calc(100vw - 60rem);
+                max-width: calc(100vw - 70rem);
             }
         }
     }
 }
-
-
 
 
 .home-our-thinking__content .white>div {
