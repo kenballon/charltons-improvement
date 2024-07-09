@@ -1563,8 +1563,7 @@ table.new__table-one-bottom td {
 }
 
 div.home-top-read .home-top-read__content,
-div.home-charltons .home-charltons__content,
-div.home-our-thinking .home-our-thinking__content {
+div.home-charltons .home-charltons__content {
     padding: 60px;
     min-height: 680px !important;
     padding-right: 54vw !important;
@@ -1592,7 +1591,7 @@ div.home-charltons .home-charltons__content h3.white {
     margin-top: 10px;
 }
 
-div.home-our-thinking .home-our-thinking__content .pub-block ul li a {
+.home-our-thinking__content .pub-block ul li a {
     font-size: 14px;
 }
 
@@ -6921,8 +6920,7 @@ div.webinar-parts.red a.active {
 
 
     div.home-charltons .home-charltons__content,
-    div.home-our-work .home-our-work__content,
-    div.home-our-thinking .home-our-thinking__content {
+    div.home-our-work .home-our-work__content {
         padding: 30px 20px !important;
         min-height: 480px !important;
     }
@@ -6946,11 +6944,6 @@ div.webinar-parts.red a.active {
 
     div.home-our-work .home-our-work__content {
         padding-right: 20px !important;
-    }
-
-    div.home-our-thinking .home-our-thinking__content {
-        padding: 30px 20px !important;
-        min-height: 480px !important;
     }
 
     div.home-featured-news .home-featured-news__firm .et_pb_code_inner {
@@ -8449,7 +8442,7 @@ subpage MENU
     }
 
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1023px) {
         height: max-content;
 
         .awards_block {
@@ -8459,8 +8452,8 @@ subpage MENU
         }
     }
 
-    @media (min-width:1025px) {
-        height: calc(100dvh - 15rem);
+    @media (min-width:1024px) {
+        min-height: 800px;
 
         .et_pb_code_inner {
             height: 100%;
@@ -8621,7 +8614,7 @@ subpage MENU
 .home-our-work__content {
     position: relative;
     padding: 60px;
-    height: 100%;
+    min-height: 800px;
     display: flex;
     align-items: center;
 
@@ -8650,6 +8643,7 @@ subpage MENU
     @media (max-width:992px) {
         padding-inline: 20px;
         padding-block: 60px;
+        min-height: 100%;
     }
 
 }
@@ -8788,6 +8782,68 @@ subpage MENU
 }
 
 /* #endregion ABOUT SECTION - New June 2024 */
+
+/* #region RECEN PUBLICATION HOMEPAGE */
+.home-our-thinking .home-our-thinking__content {
+    padding: 60px;
+    min-height: (100dvh - 15rem);
+    display: flex;
+    align-items: center;
+
+    .et_pb_code_inner {
+        width: 100%;
+        container-type: inline-size;
+        container-name: recentpub;
+    }
+
+    @media (max-width:992px) {
+        padding-inline: 20px;
+        padding-block: 60px;
+    }
+}
+
+
+@container recentpub (max-width:1023px) {
+    .home-our-thinking__content {
+        >.et_pb_code_inner {
+            .white {
+                max-width: 100vw;
+            }
+        }
+    }
+}
+
+@container recentpub (min-width:1024px) {
+    .home-our-thinking__content {
+        >.et_pb_code_inner {
+            .white {
+                max-width: calc(100vw - 25rem);
+            }
+        }
+    }
+}
+
+@container recentpub (min-width:1280px) {
+    .home-our-thinking__content {
+        >.et_pb_code_inner {
+            .white {
+                max-width: calc(100vw - 45rem);
+            }
+        }
+    }
+}
+
+@container recentpub (min-width:1440px) {
+    .home-our-thinking__content {
+        >.et_pb_code_inner {
+            .white {
+                max-width: calc(100vw - 70rem);
+            }
+        }
+    }
+}
+
+/* #endregion RECEN PUBLICATION HOMEPAGE */
 
 /* #region TEMP SECTION - New June 2024 */
 .dark_mode {
@@ -8940,15 +8996,14 @@ subpage MENU
 
 /* #region NEWSLETTER SECTION */
 .et_pb_section.newsletter_section {
-    min-height: 65vh;
-    min-height: 65dvh;
-    min-height: 65svh;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 800px;
 
     @media (max-width: 980px) {
         padding: 50px 25px !important;
+        min-height: 100%;
     }
 
     @media (min-width: 1024px) {
