@@ -8831,31 +8831,6 @@ subpage MENU
 
 /* #endregion TEMP SECTION - New June 2024 */
 
-.iframe_wrapper {
-    .video-placeholder {
-        position: relative;
-        width: 100%;
-        max-width: 560px;
-        cursor: pointer;
-    }
-
-    .video-placeholder img {
-        width: 100%;
-    }
-
-    .play-button {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 64px;
-        height: 64px;
-        background: url('https://img.icons8.com/ios-filled/100/000000/play-button-circled.png') no-repeat center center;
-        background-size: 64px 64px;
-    }
-
-}
-
 /* =============================================== */
 /* PROFILE PAGE */
 /* =============================================== */
