@@ -1,3 +1,7 @@
+/* a[href^="https://dev2.charltonslaw.com/our-work/private-equity-funds/investment-funds-hong-kong/marketing-funds-in-hong-kong/"] {
+	display: none !important;
+} */
+
 /* smart slider */
 .n2-ss-slider-wrapper-inside .n2-ss-slider .n2-ss-layer-content .n2-ss-layer[data-pm=normal] {
     display: flex;
@@ -118,6 +122,10 @@ div#n2-ss-3 .n-uc-hWmCNsH99NHP {
     padding-right: 20px;
 }
 
+/* .social-networks__link img {
+	width: 18px !important;
+} */
+
 @media (max-width: 1380px) {
     .social-icon_block {
         display: none !important;
@@ -140,6 +148,14 @@ div#n2-ss-3 .n-uc-hWmCNsH99NHP {
     }
 }
 
+/* /headr social icon */
+
+/* / ------------------------------------------------ news&events Breadcrumbs - background */
+
+/* delete */
+.white h2 {
+    color: #fff !important;
+}
 
 div.home-our-work .home-our-work__content-test {
     padding-left: 54vw !important;
@@ -1075,6 +1091,7 @@ h2.entry-title>a:hover {
 
     .menu_the_firm ul li.page_item_has_children span {
         top: -2px !important;
+        /*    		height: auto !important; */
         width: auto !important;
         padding: 6px 20px !important;
     }
