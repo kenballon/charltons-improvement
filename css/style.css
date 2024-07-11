@@ -66,13 +66,6 @@ a {
     font-family: var(--ff-primary);
 }
 
-p,
-div {
-    font-size: clamp(1.125rem, 1.0625rem + 0.3333vw, 1.25rem);
-    font-weight: 400;
-    line-height: 1.6em;
-}
-
 strong {
     font-weight: 700;
 }
@@ -5326,38 +5319,6 @@ ol li ol,
     margin-bottom: -27px !important;
 }
 
-/* footer */
-#main-footer {
-    position: relative;
-    z-index: 10;
-}
-
-.et-social-icons {
-    float: right;
-    position: absolute;
-    top: 10px;
-    right: 1px;
-}
-
-.et-social-icons li a {
-    color: #fff;
-}
-
-#main-footer .container {
-    max-width: 100%;
-    width: 100%;
-    padding-left: 30px;
-}
-
-#menu-footer-menu li a {
-    color: #fff;
-    font-weight: 400;
-    font-size: 12px;
-}
-
-#footer-info {
-    display: none;
-}
 
 /* newsletter search form  */
 div.newsletter-search-form .newsletter-search-intro {
@@ -9012,3 +8973,90 @@ subpage MENU
 }
 
 /* #endregion NEWSLETTER SECTION */
+
+
+/* #region FOOTER SECTION */
+
+/* footer */
+#main-footer {
+    position: relative;
+    z-index: 10;
+}
+
+.et-social-icons {
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 1px;
+}
+
+.et-social-icons li a {
+    color: #fff;
+}
+
+#main-footer .container {
+    max-width: 100%;
+    width: 100%;
+    padding-left: 30px;
+}
+
+#menu-footer-menu li a {
+    color: #fff;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+#footer-info {
+    display: none;
+}
+
+#main-footer .container {
+    @media (max-width:1280px) {
+        padding-left: 0;
+    }
+}
+
+.bottom-nav {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 1rem;
+
+    & li {
+        padding-right: 0;
+    }
+
+    & li:last-child {
+        margin-left: auto;
+        padding-right: 30px;
+
+        @media (max-width:1280px) {
+            margin-left: unset;
+            padding-right: 0;
+        }
+    }
+
+    .social-networks__list {
+        display: flex;
+        align-items: flex-end;
+        gap: 1rem;
+
+        @media (max-width:1280px) {
+            top: 0;
+            left: 0;
+            width: 100%;
+            position: absolute;
+            justify-content: center;
+            padding-top: .8rem;
+        }
+    }
+
+    @media (max-width:1280px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
+        padding-top: 3.2rem;
+    }
+}
+
+/* #endregion FOOTER SECTION */
