@@ -13,8 +13,6 @@
         <h1 class="h1">[get_title]</h1>
     </div>
 
-
-
 </body>
 
 </html>
