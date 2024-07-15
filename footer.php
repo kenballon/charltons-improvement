@@ -33,34 +33,70 @@ if (!is_page_template('page-template-blank.php')):
     ?>
 
     <div id="et-footer-nav">
-        <div class="container">
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'footer-menu',
-                'depth' => '1',
-                'menu_class' => 'bottom-nav',
-                'container' => '',
-                'fallback_cb' => '',
-            ));
-            ?>
+        <div class="container flex align-items-center">
+            <div class="ftr_left_col flex align-items-center">
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'footer-menu',
+                    'depth' => '1',
+                    'menu_class' => 'bottom-nav',
+                    'container' => '',
+                    'fallback_cb' => '',
+                ));
+                ?>
+                <span class="ftr_copyright">
+                    ©Copyright Charltons 2024. All rights reserved.
+                </span>
+            </div>
+            <div class="ftr_right_col ml-auto">
+                <div class="social-networks__list flex">
+                    <div class="social-networks__item">
+                        <a class="social-networks__link" href="https://www.facebook.com/charltons/" target="_blank"
+                            rel="noopener" aria-label="link goes to facebook">
+                            <img style="max-width: 24px" src="/media/icons/social-media/facebook.svg" alt="facebook" />
+                        </a>
+                    </div>
+                    <div class="social-networks__item">
+                        <a class="social-networks__link"
+                            href="https://www.linkedin.com/company/charltons-law/mycompany/" target="_blank"
+                            rel="noopener" aria-label="link goes to LinkedIn">
+                            <img style="max-width: 24px; height: 24px; padding-top: 6px"
+                                src="https://dev2.charltonslaw.com/static/images/icons/social-media/in.svg"
+                                alt="linkedin" />
+                        </a>
+                    </div>
+                    <div class="social-networks__item">
+                        <a class="social-networks__link" href="https://www.instagram.com/charltonslaw/" target="_blank"
+                            rel="noopener" aria-label="link goes to Instagram">
+                            <img style="max-width: 24px" src="/media/icons/social-media/instagram.svg"
+                                alt="instagram" />
+                        </a>
+                    </div>
+                    <div class="social-networks__item">
+                        <a class="social-networks__link" href="https://www.youtube.com/@charltons-law" target="_blank"
+                            rel="noopener" aria-label="link goes to YouTube">
+                            <img style="max-width: 24px" src="/media/icons/social-media/youtube.svg" alt="youtube" />
+                        </a>
+                    </div>
+                    <div class="social-networks__item">
+                        <a class="social-networks__link" href="https://anchor.fm/charltons" target="_blank"
+                            rel="noopener" aria-label="link goes to Anchor">
+                            <img style="max-width: 24px" src="/media/icons/social-media/anchor.svg" alt="youtube" />
+                        </a>
+                    </div>
+                    <div class="social-networks__item">
+                        <a class="social-networks__link" href="https://rumble.com/c/c-1647355" target="_blank"
+                            rel="noopener" aria-label="link goes to Rumble">
+                            <img style="max-width: 24px" src="/media/icons/social-media/rumble.svg" alt="rumble" />
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div> <!-- #et-footer-nav -->
 
     <?php endif; ?>
 
-    <div id="footer-bottom" style="display:none;">
-        <div class="container clearfix">
-            <?php
-            if (false !== et_get_option('show_footer_social_icons', true)) {
-                get_template_part('includes/social_icons', 'footer');
-            }
-
-            // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-            echo et_core_fix_unclosed_html_tags(et_core_esc_previously(et_get_footer_credits()));
-            // phpcs:enable
-            ?>
-        </div> <!-- .container -->
-    </div>
 </footer> <!-- #main-footer -->
 </div> <!-- #et-main-area -->
 

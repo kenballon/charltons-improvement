@@ -1570,12 +1570,26 @@ function get_latest_post_details($atts)
 	$posts_per_page = intval($atts['posts_per_page']);
 	$include_thumbnail = strtolower($atts['include_thumbnail']) === 'yes' ? true : false;
 
+	// Check if the category name contains special characters
+	if (!ctype_alnum(str_replace(['-', '_'], '', $category))) {
+		// Get the term ID by name (this assumes the category exists)
+		$term = get_term_by('name', $category, 'category');
+		if ($term) {
+			$category_slug = $term->slug;
+		} else {
+			return '<p>Category not found.</p>';
+		}
+	} else {
+		// Assume it's a slug
+		$category_slug = $category;
+	}
+
 	// Prepare query arguments for WP_Query
 	$query_args = array(
 		'posts_per_page' => $posts_per_page,  // Number of posts to retrieve
 		'post_status' => 'publish',  // Only published posts
 		'has_password' => false,  // Exclude password-protected posts
-		'category_name' => $category  // Filter posts by category
+		'category_name' => $category_slug  // Filter posts by category
 	);
 
 	// Execute the query to get the latest posts
