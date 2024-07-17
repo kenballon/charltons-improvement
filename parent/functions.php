@@ -4673,7 +4673,7 @@ if ( ! function_exists( 'et_divi_customizer_theme_settings' ) ) :
 					'type'        => 'range',
 					'input_attrs' => array(
 						'min'  => 0,
-						'max'  => 50,
+						'max'  => 100,
 						'step' => 1,
 					),
 				)
@@ -6564,7 +6564,7 @@ function et_divi_add_customizer_css() {
 				.et_search_form_container input::-webkit-input-placeholder { color: <?php echo esc_html( $mobile_menu_link ); ?>; }
 				.et_search_form_container input:-ms-input-placeholder { color: <?php echo esc_html( $mobile_menu_link ); ?>; }
 			<?php } ?>
-			<?php if ( $body_font_size !== $tablet_body_font_size ) { ?>
+			<?php if ( 14 !== $tablet_body_font_size && $body_font_size !== $tablet_body_font_size ) { ?>
 				<?php echo esc_html( $body_selector_sibling ); ?>
 				<?php echo esc_html( $body_selector ); ?>,
 				<?php echo $css( '.et_pb_column_1_2 .et_quote_content blockquote cite', false ); ?>,
@@ -6657,7 +6657,7 @@ function et_divi_add_customizer_css() {
 			<?php } ?>
 		}
 		@media only screen and ( max-width: 767px ) {
-			<?php if ( $phone_body_font_size !== $tablet_body_font_size ) { ?>
+			<?php if ( 14 !== $phone_body_font_size && $phone_body_font_size !== $tablet_body_font_size ) { ?>
 				<?php echo esc_html( $body_selector_sibling ); ?>
 				<?php echo esc_html( $body_selector ); ?>,
 				<?php echo $css( '.et_pb_column_1_2 .et_quote_content blockquote cite', false ); ?>,
