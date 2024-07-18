@@ -2555,14 +2555,14 @@ div.et_pb_module.et_pb_tabs.achive-tabs ul.et_pb_tabs_controls li.et_pb_tab_acti
 
 .page-submenu li a {
     display: block;
-    color: #808285;
+    color: #656565;
     position: relative;
     padding: 15px 25px 15px 0;
 }
 
 .page-submenu li.page_item_has_children>ul>li>a {
     display: block;
-    color: #808285;
+    color: #656565;
     position: relative;
     padding: 5px 0;
     padding: 15px 0 15px 20px;
@@ -4971,7 +4971,7 @@ img.img-display-block {
 }
 
 .breadcrumb ul li a {
-    color: #808285;
+    color: #656565;
 }
 
 .breadcrumb ul li span {
