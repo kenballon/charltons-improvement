@@ -66,6 +66,10 @@ a {
     font-family: var(--ff-primary);
 }
 
+a {
+    text-decoration: none !important;
+}
+
 strong {
     font-weight: 700;
 }
