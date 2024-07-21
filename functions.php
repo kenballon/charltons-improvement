@@ -1652,6 +1652,7 @@ function relate_pages_shortcode($atts)
 		array(
 			'slug' => '',
 			'number_of_pages_list' => 4,
+			'post_type' => 'page',  // Default to 'page', can be 'post' or 'page'
 		),
 		$atts,
 		'relate_pages'
@@ -1665,19 +1666,19 @@ function relate_pages_shortcode($atts)
 		return '';
 	}
 
-	// Get the current page ID
-	$current_page_id = get_queried_object_id();
+	// Get the current page/post ID
+	$current_id = get_queried_object_id();
 
 	// Set up the query arguments
 	$args = array(
 		'cat' => $category->term_id,
 		'posts_per_page' => -1,  // Get all posts, we'll filter manually
-		'post_type' => 'page',
+		'post_type' => $atts['post_type'],
 		'post_status' => 'publish',
 		'has_password' => false,
 		'orderby' => 'date',  // Order by publication date
-		'order' => 'ASC',  // Ascending order (oldest first)
-		'post__not_in' => array($current_page_id),  // Exclude the current page
+		'order' => 'DESC',  // Ascending order (oldest first)
+		'post__not_in' => array($current_id),  // Exclude the current page/post
 	);
 
 	// Run the query
