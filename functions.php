@@ -1643,3 +1643,91 @@ function get_latest_post_details($atts)
 add_shortcode('get_recent_post_item', 'get_latest_post_details');
 
 // END ADDED BY KENNETH BALLON
+
+// TEST ONLY
+function relate_pages_shortcode($atts)
+{
+	// Extract shortcode attributes
+	$atts = shortcode_atts(
+		array(
+			'slug' => '',
+			'number_of_pages_list' => 4,
+		),
+		$atts,
+		'relate_pages'
+	);
+
+	// Get the category by slug
+	$category = get_category_by_slug($atts['slug']);
+
+	// If category doesn't exist, return empty string
+	if (!$category) {
+		return '';
+	}
+
+	// Get the current page ID
+	$current_page_id = get_queried_object_id();
+
+	// Set up the query arguments
+	$args = array(
+		'cat' => $category->term_id,
+		'posts_per_page' => -1,  // Get all posts, we'll filter manually
+		'post_type' => 'page',
+		'post_status' => 'publish',
+		'has_password' => false,
+		'orderby' => 'date',  // Order by publication date
+		'order' => 'ASC',  // Ascending order (oldest first)
+		'post__not_in' => array($current_page_id),  // Exclude the current page
+	);
+
+	// Run the query
+	$query = new WP_Query($args);
+
+	// Start output buffering
+	ob_start();
+
+	if ($query->have_posts()) {
+		echo '<div class="related-pages">';
+		$count = 0;
+		while ($query->have_posts() && $count < intval($atts['number_of_pages_list'])) {
+			$query->the_post();
+
+			if (!has_post_thumbnail()) {
+				continue;
+			}
+
+			$count++;
+
+			$image_id = get_post_thumbnail_id();
+			$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+
+			if (empty($image_alt)) {
+				$image_alt = get_the_title();
+			}
+
+			$image_src = wp_get_attachment_image_src($image_id, 'thumbnail');
+
+?>
+<a href="<?php the_permalink(); ?>" target="_blank" rel="noopener noreferrer">
+    <article class="related-page">
+        <div class="related-page-image">
+            <img src="<?php echo esc_url($image_src[0]); ?>" alt="<?php echo esc_attr($image_alt); ?>"
+                width="<?php echo esc_attr($image_src[1]); ?>" height="<?php echo esc_attr($image_src[2]); ?>"
+                loading="lazy">
+        </div>
+        <h3 class="related-page-title"><?php the_title(); ?></h3>
+        <div class="related-page-excerpt"><?php the_excerpt(); ?></div>
+    </article>
+</a>
+<?php
+		}
+		echo '</div>';
+	}
+
+	wp_reset_postdata();
+
+	return ob_get_clean();
+}
+
+// Register the shortcode
+add_shortcode('relate_pages', 'relate_pages_shortcode');

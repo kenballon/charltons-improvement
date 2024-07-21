@@ -9052,3 +9052,46 @@ subpage MENU
 }
 
 /* #endregion FOOTER SECTION */
+
+/* TEMP */
+
+.related-pages {
+    max-width: 350px;
+    padding-top: 4rem;
+}
+
+.related-page {
+    margin-bottom: 2rem;
+
+    .related-page-image {
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+        margin-bottom: .5rem;
+
+        & img {
+            width: 100%;
+            object-fit: cover;
+            transition: all .1s ease-in;
+
+            &:hover {
+                transform: scale(1.05)
+            }
+        }
+    }
+
+    h3.related-page-title {
+        margin-bottom: 0;
+        line-height: 1.5;
+        font-size: 18px;
+        font-weight: 500;
+
+        &:hover {
+            color: var(--chr-primary-color-700);
+        }
+    }
+
+
+    .related-page-excerpt {
+        color: var(--chr-text-gray-700);
+    }
+}
