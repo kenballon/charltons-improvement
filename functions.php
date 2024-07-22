@@ -1548,4 +1548,5 @@ function category_id_class($classes)
 add_filter('post_class', 'category_id_class');
 add_filter('body_class', 'category_id_class');
 
+// Shortcodes added by KENNETH BALLON
 require get_template_directory() . '/includes/custom-shortcodes.php';
