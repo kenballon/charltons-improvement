@@ -1548,4 +1548,4 @@ function category_id_class($classes)
 add_filter('post_class', 'category_id_class');
 add_filter('body_class', 'category_id_class');
 
-require_once get_template_directory() . '/includes/custom-shortcodes.php';
+require get_template_directory() . '/includes/custom-shortcodes.php';
