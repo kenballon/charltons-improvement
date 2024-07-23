@@ -62,7 +62,7 @@ function related_pages_shortcode($atts)
     ob_start();
 
     if ($query->have_posts()) {
-        echo '<div class="related-pages">';
+        echo '<aside class="related-pages">';
         $count = 0;
         while ($query->have_posts() && $count < intval($atts['number_of_pages_list'])) {
             $query->the_post();
@@ -89,14 +89,14 @@ function related_pages_shortcode($atts)
                 width="<?php echo esc_attr($image_src[1]); ?>" height="<?php echo esc_attr($image_src[2]); ?>"
                 loading="lazy" fetchpriority="high">
         </div>
-        <h3 class="related-page-title"><?php the_title(); ?></h3>
+        <h1 class="related-page-title"><?php the_title(); ?></h1>
         <div class="related-page-excerpt">
             <?php echo get_custom_excerpt(get_the_excerpt(), intval($atts['excerpt_length'])); ?></div>
     </article>
 </a>
 <?php
         }
-        echo '</div>';
+        echo '</aside>';
     }
 
     wp_reset_postdata();
