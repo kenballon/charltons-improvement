@@ -9049,7 +9049,11 @@ subpage MENU
 
 /* #endregion FOOTER SECTION */
 
-/* TEMP */
+/* SHORTCODE RELATED PAGES */
+
+.related_pt {
+    padding-top: 55px;
+}
 
 .related-pages {
     margin-right: 1.25rem;
@@ -9089,7 +9093,7 @@ subpage MENU
         }
     }
 
-    h3.related-page-title {
+    .related-page-title {
         margin-bottom: 0;
         line-height: 1.5;
         font-size: 18px;
