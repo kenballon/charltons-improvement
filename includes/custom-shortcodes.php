@@ -16,7 +16,7 @@ function get_custom_excerpt($content, $word_count)
  * @return string The rendered HTML output with related pages.
  *
  * EXAMPLE USAGE:
- * [related_pages slug="my-category" number_of_pages_list="3" excerpt_length="25"]
+ * [related_pages slug="my-category" number_of_pages_list="3" excerpt_length="20"]
  */
 function related_pages_shortcode($atts)
 {
