@@ -1,17 +1,23 @@
 <?php
-
-// helper function for putting limit to excerpt
-function custom_excerpt($length = 150)
+function get_custom_excerpt($content, $word_count)
 {
-    $excerpt = get_the_excerpt();
-    if (strlen($excerpt) > $length) {
-        $excerpt = substr($excerpt, 0, $length);
-        $excerpt = substr($excerpt, 0, strrpos($excerpt, ' '));
-        $excerpt .= '...';
-    }
-    return $excerpt;
+    $trimmed_content = wp_trim_words($content, $word_count);
+    return $trimmed_content;
 }
 
+/**
+ * Displays a list of related pages based on a category slug.
+ *
+ * This shortcode retrieves all published posts from a specified category,
+ * excluding the current page/post, and displays them in a grid layout with
+ * thumbnails, titles, and excerpts.
+ *
+ * @param array $atts Shortcode attributes.
+ * @return string The rendered HTML output with related pages.
+ *
+ * EXAMPLE USAGE:
+ * [related_pages slug="my-category" number_of_pages_list="3" excerpt_length="25"]
+ */
 function related_pages_shortcode($atts)
 {
     // Extract shortcode attributes
@@ -20,10 +26,10 @@ function related_pages_shortcode($atts)
             'slug' => '',
             'number_of_pages_list' => 4,
             'post_type' => 'page',
-            'excerpt_length' => 150,
+            'excerpt_length' => 20,  // default excerpt length in words
         ),
         $atts,
-        'relate_pages'
+        'related_pages'
     );
 
     // Get the category by slug
@@ -44,8 +50,8 @@ function related_pages_shortcode($atts)
         'post_type' => $atts['post_type'],
         'post_status' => 'publish',
         'has_password' => false,
-        'orderby' => 'date',  // Order by publication date
-        'order' => 'DESC',  // Ascending order (oldest first)
+        'orderby' => 'rand',  // Order by publication date
+        'order' => 'DESC',  // Descending order (latest first)
         'post__not_in' => array($current_id),  // Exclude the current page/post
     );
 
@@ -75,17 +81,17 @@ function related_pages_shortcode($atts)
             }
 
             $image_src = wp_get_attachment_image_src($image_id, 'thumbnail');
-
 ?>
 <a href="<?php the_permalink(); ?>" target="_blank" rel="noopener noreferrer">
     <article class="related-page">
         <div class="related-page-image">
             <img src="<?php echo esc_url($image_src[0]); ?>" alt="<?php echo esc_attr($image_alt); ?>"
                 width="<?php echo esc_attr($image_src[1]); ?>" height="<?php echo esc_attr($image_src[2]); ?>"
-                loading="lazy">
+                loading="lazy" fetchpriority="high">
         </div>
         <h3 class="related-page-title"><?php the_title(); ?></h3>
-        <div class="related-page-excerpt"><?php echo custom_excerpt(intval($atts['excerpt_length'])); ?></div>
+        <div class="related-page-excerpt">
+            <?php echo get_custom_excerpt(get_the_excerpt(), intval($atts['excerpt_length'])); ?></div>
     </article>
 </a>
 <?php
@@ -99,11 +105,20 @@ function related_pages_shortcode($atts)
 }
 
 /**
- * Retrieves the latest post details including title, excerpt, featured image, and URL.
- * Allows filtering by category, the number of posts to display, and whether to include the thumbnail.
+ * Retrieves and displays the latest posts from a specified category.
+ *
+ * This shortcode allows you to display a list of the latest posts from a
+ * chosen category, along with titles, excerpts, and optionally thumbnails.
  *
  * @param array $atts Shortcode attributes.
- * @return string HTML output of the latest post details.
+ * @return string The rendered HTML output with the latest posts.
+ *
+ * EXAMPLE USAGE:
+ *
+ * [get_latest_post_details category="business" posts_per_page="2" include_thumbnail="no"]
+ *
+ * This example shows the latest 2 posts from the "business" category,
+ * without including thumbnails.
  */
 function get_latest_post_details($atts)
 {
