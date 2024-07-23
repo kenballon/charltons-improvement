@@ -9098,6 +9098,7 @@ subpage MENU
         line-height: 1.5;
         font-size: 18px;
         font-weight: 500;
+        hyphens: auto;
 
         &:hover {
             color: var(--chr-primary-color-700) !important;
