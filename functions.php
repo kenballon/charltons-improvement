@@ -1550,3 +1550,5 @@ add_filter('body_class', 'category_id_class');
 
 // Custom Shortcodes Functions
 require_once get_stylesheet_directory() . '/includes/custom-shortcodes.php';
+
+// added some comment here
