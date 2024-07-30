@@ -209,3 +209,5 @@ function register_custom_shortcodes()
 }
 
 add_action('init', 'register_custom_shortcodes');
+
+// added some comments
