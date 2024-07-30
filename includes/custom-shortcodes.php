@@ -211,5 +211,4 @@ function register_custom_shortcodes()
 add_action('init', 'register_custom_shortcodes');
 
 // added some comments
-// added another comments
-// third comments
+// added another second comments
